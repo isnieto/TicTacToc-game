@@ -53,13 +53,10 @@ if __name__ == "__main__":
     #  table coordinates are empty. Game has not started yet
     game_state = [[' ', coordinates] for coordinates in table_coordinates]
 
-
     while not game_over:
         # Printing out the game state in the table
         show_grid(game_state)
         user_input = check_input()
-        
-
         for game in game_state:   
             if user_input in game and ' ' not in game: # repeat if cell(coordinate) is not empty
                 print("This cell is occupied! Choose another one!")
@@ -70,7 +67,6 @@ if __name__ == "__main__":
                 # diagonal_rows state
                 diagonal_rows[0] = [game_state[0][0], game_state[4][0], game_state[8][0]]  
                 diagonal_rows[1] = [game_state[2][0], game_state[4][0], game_state[6][0]]
-            
         #After 5 movements checking results for winner
         if turn >= 5 and turn < 9:
             for i in range(0, 9, 3):
